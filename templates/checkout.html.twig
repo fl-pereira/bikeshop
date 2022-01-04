@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+    <div class="container-sm">
+        <div class="mt-3">
+            <a href="{{ path('produto') }}" class="text-decoration-none"> Página Incial </a>
+        </div>
+
+        <div class="card-title">
+            <h4 class="card-title"> Checkout </h4>        
+        </div>
+    </div>   
+
+    <div class="mx-auto container-sm p-3 rounded-3" style="background-color: #eee;">
+        <div> Total </div>
+        <div> R$ {{ total | number_format(2) }} </div>
+    </div>
+
+
+    <div class="mx-auto container-sm">
+
+        {{ form_start(form) }}
+            <div class="form-group m-3">
+                    {{ form_label(form.nome) }}
+                    {{ form_widget(form.nome,{'attr':{'class':'form-control mb-3'}}  ) }}
+            </div>
+
+            <div class="form-group m-3">
+                    {{ form_label(form.mail) }}
+                    {{ form_widget(form.mail,{'attr':{'class':'form-control mb-3'}}  ) }}
+            </div>
+
+            <div class="form-group m-3">
+                    {{ form_label(form.endereco) }}
+                    {{ form_widget(form.endereco,{'attr':{'class':'form-control mb-3'}}  ) }}
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-outline-primary mt-2"> Confirmar pedido </button>
+            </div>
+
+        {{ form_end(form) }}
+
+    </div>
+{% endblock %}

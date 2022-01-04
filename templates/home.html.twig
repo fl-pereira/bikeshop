@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+    <div class="container-sm text-center">
+    {% for bikes in bikes %}
+        <div class="float-start m-5">
+            {% if bikes.image %} <a href="/produto/{{ bikes.id }}"> <img src="/images/{{ bikes.image }}" alt=""> </a> {% endif %}
+            <h6> <a href="/produto/{{ bikes.id }}" class="link-info text-decoration-none"> Cód. {{ bikes.id }} </a> </h6>
+            <h5 class=""> <a href="/produto/{{ bikes.id }}" class="text-decoration-none"> {{ bikes.nome }} </a></h5>
+
+            <small class="text-muted text-center"> Valor: </small> R$ {{ bikes.preco }}
+        </div>
+    {% endfor %}
+    </div>
+    <div class="clearfix"></div>
+
+{% endblock %}
